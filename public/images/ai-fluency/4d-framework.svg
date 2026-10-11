@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560" font-family="Noto Sans SC, PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="800" height="560" fill="#faf6ee"/>
+  <text x="400" y="46" text-anchor="middle" font-size="26" font-weight="700" fill="#2b2620">AI Fluency · 4D 框架</text>
+  <text x="400" y="72" text-anchor="middle" font-size="14" fill="#8a7f70">四个相互关联的核心能力 · 适用于三种协作方式</text>
+
+  <!-- 4D boxes -->
+  <g>
+    <rect x="30" y="120" width="170" height="104" rx="12" fill="#fffdf8" stroke="#b23a1e" stroke-width="2.5"/>
+    <text x="115" y="158" text-anchor="middle" font-size="21" font-weight="700" fill="#2b2620">委派</text>
+    <text x="115" y="184" text-anchor="middle" font-size="13" fill="#8a7f70">Delegation</text>
+    <text x="115" y="206" text-anchor="middle" font-size="12" fill="#8a7f70">决定什么交给 AI</text>
+  </g>
+  <g>
+    <rect x="215" y="120" width="170" height="104" rx="12" fill="#fffdf8" stroke="#d8cfbd" stroke-width="2"/>
+    <text x="300" y="158" text-anchor="middle" font-size="21" font-weight="700" fill="#2b2620">描述</text>
+    <text x="300" y="184" text-anchor="middle" font-size="13" fill="#8a7f70">Description</text>
+    <text x="300" y="206" text-anchor="middle" font-size="12" fill="#8a7f70">把需求说清楚</text>
+  </g>
+  <g>
+    <rect x="400" y="120" width="170" height="104" rx="12" fill="#fffdf8" stroke="#d8cfbd" stroke-width="2"/>
+    <text x="485" y="158" text-anchor="middle" font-size="21" font-weight="700" fill="#2b2620">辨别</text>
+    <text x="485" y="184" text-anchor="middle" font-size="13" fill="#8a7f70">Discernment</text>
+    <text x="485" y="206" text-anchor="middle" font-size="12" fill="#8a7f70">批判性评估产出</text>
+  </g>
+  <g>
+    <rect x="585" y="120" width="170" height="104" rx="12" fill="#fffdf8" stroke="#b23a1e" stroke-width="2.5"/>
+    <text x="670" y="158" text-anchor="middle" font-size="21" font-weight="700" fill="#2b2620">审慎</text>
+    <text x="670" y="184" text-anchor="middle" font-size="13" fill="#8a7f70">Diligence</text>
+    <text x="670" y="206" text-anchor="middle" font-size="12" fill="#8a7f70">为协作负责</text>
+  </g>
+
+  <!-- arrows between boxes -->
+  <g stroke="#8a7f70" stroke-width="2" fill="none">
+    <line x1="200" y1="172" x2="215" y2="172"/>
+    <line x1="385" y1="172" x2="400" y2="172"/>
+    <line x1="570" y1="172" x2="585" y2="172"/>
+  </g>
+  <g fill="#8a7f70">
+    <polygon points="215,166 215,178 223,172"/>
+    <polygon points="400,166 400,178 408,172"/>
+    <polygon points="585,166 585,178 593,172"/>
+  </g>
+
+  <!-- inner loop: Description <-> Discernment -->
+  <path d="M 300 112 Q 392 78 477 112" stroke="#b23a1e" stroke-width="2.5" fill="none" marker-start="url(#arrR)" marker-end="url(#arrR)"/>
+  <defs>
+    <marker id="arrR" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#b23a1e"/>
+    </marker>
+  </defs>
+  <text x="392" y="92" text-anchor="middle" font-size="13" font-weight="700" fill="#b23a1e">内循环：描述 ⇄ 辨别（做功）</text>
+
+  <!-- outer loop: Diligence -> Delegation -->
+  <path d="M 640 232 Q 392 300 145 232" stroke="#2b2620" stroke-width="2" stroke-dasharray="7,5" fill="none"/>
+  <polygon points="145,226 133,232 145,238" fill="#2b2620"/>
+  <text x="392" y="292" text-anchor="middle" font-size="13" font-weight="700" fill="#2b2620">外循环：委派 → 审慎（框定责任）</text>
+
+  <!-- three engagement modes -->
+  <text x="400" y="348" text-anchor="middle" font-size="15" font-weight="700" fill="#2b2620">三种协作方式（4D 适用于每一种）</text>
+  <g>
+    <rect x="110" y="364" width="170" height="60" rx="30" fill="#fffdf8" stroke="#d8cfbd" stroke-width="2"/>
+    <text x="195" y="390" text-anchor="middle" font-size="16" font-weight="700" fill="#2b2620">自动化</text>
+    <text x="195" y="410" text-anchor="middle" font-size="12" fill="#8a7f70">Automation</text>
+  </g>
+  <g>
+    <rect x="315" y="364" width="170" height="60" rx="30" fill="#fffdf8" stroke="#d8cfbd" stroke-width="2"/>
+    <text x="400" y="390" text-anchor="middle" font-size="16" font-weight="700" fill="#2b2620">增强</text>
+    <text x="400" y="410" text-anchor="middle" font-size="12" fill="#8a7f70">Augmentation</text>
+  </g>
+  <g>
+    <rect x="520" y="364" width="170" height="60" rx="30" fill="#fffdf8" stroke="#d8cfbd" stroke-width="2"/>
+    <text x="605" y="390" text-anchor="middle" font-size="16" font-weight="700" fill="#2b2620">代理</text>
+    <text x="605" y="410" text-anchor="middle" font-size="12" fill="#8a7f70">Agency</text>
+  </g>
+
+  <!-- goals -->
+  <text x="400" y="470" text-anchor="middle" font-size="15" font-weight="700" fill="#2b2620">目标</text>
+  <g font-size="15" fill="#2b2620" text-anchor="middle">
+    <text x="200" y="502">有效 <tspan fill="#8a7f70" font-size="12">effective</tspan></text>
+    <text x="340" y="502">高效 <tspan fill="#8a7f70" font-size="12">efficient</tspan></text>
+    <text x="480" y="502">合乎道德 <tspan fill="#8a7f70" font-size="12">ethical</tspan></text>
+    <text x="630" y="502">安全 <tspan fill="#8a7f70" font-size="12">safe</tspan></text>
+  </g>
+  <line x1="120" y1="522" x2="680" y2="522" stroke="#b23a1e" stroke-width="3"/>
+</svg>
