@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL;
+const posts = (await getCollection('posts')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+// 连续学习天数：从最新一篇往前数连续的自然日
+const daySet = new Set(posts.map((p) => p.data.date.toISOString().slice(0, 10)));
+let streak = 0;
+{
+  const d = new Date(posts[0]?.data.date ?? new Date());
+  d.setUTCHours(0, 0, 0, 0);
+  while (daySet.has(d.toISOString().slice(0, 10))) {
+    streak++;
+    d.setUTCDate(d.getUTCDate() - 1);
+  }
+}
+
+const tracks = [
+  {
+    key: 'agent',
+    name: 'Agent / MCP',
+    en: 'AGENT TRACK',
+    desc: '自主代理、MCP 协议、RAG 与评测——冲着 AI 应用岗去的。',
+  },
+  {
+    key: 'blockchain',
+    name: '区块链',
+    en: 'BLOCKCHAIN TRACK',
+    desc: '从基础到 DeFi，为 AI × Web3 方向补课。',
+  },
+].map((t) => {
+  const all = posts.filter((p) => p.data.track === t.key);
+  const done = all.filter((p) => p.data.status === 'completed').length;
+  return { ...t, done, total: all.length, pct: all.length ? Math.round((done / all.length) * 100) : 0 };
+});
+
+const latest = posts.slice(0, 3);
+
+function fmt(d: Date) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+function slugOf(id: string) { return id.replace(/\.md$/, ''); }
+---
+
+<Base active="home" description="Harry 的公开学习笔记：每天一门课，方向 AI Agent / MCP / 区块链。">
+  <div class="wrap">
+    <section class="hero">
+      <span class="kicker">LEARNING IN PUBLIC</span>
+      <h1>每天一门课</h1>
+      <p class="mission">
+        我是 Harry，CS 硕士在读，每天刷一门课并把笔记公开。
+        方向是 AI Agent / MCP / 区块链——为 AI × Web3 的求职路攒弹药。
+        每篇笔记课后 20 分钟写完，拒绝打磨。
+      </p>
+      <div class="streak">
+        <div><span class="num">{streak}</span><span class="label">连续学习天数</span></div>
+        <div><span class="num">{posts.length}</span><span class="label">篇公开笔记</span></div>
+      </div>
+    </section>
+
+    <section class="tracks">
+      {tracks.map((t) => (
+        <div class="track-card">
+          <div class="en">{t.en}</div>
+          <h3>{t.name}</h3>
+          <p class="desc">{t.desc}</p>
+          <div class="progress"><span style={`width:${t.pct}%`}></span></div>
+          <div class="progress-meta">已完成 {t.done} / {t.total} · {t.pct}%</div>
+        </div>
+      ))}
+    </section>
+
+    <h2 class="section-title">最新笔记</h2>
+    {latest.map((p) => (
+      <a class="post-card" href={`${base}/posts/${slugOf(p.id)}/`}>
+        <span class="date">{fmt(p.data.date)}</span>
+        {p.data.status === 'completed'
+          ? <span class="status-badge status-done">已完成</span>
+          : <span class="status-badge status-wip">学习中 {p.data.progress ?? ''}%</span>}
+        <h3>{p.data.title}</h3>
+        {p.data.subtitle && <p class="sub">{p.data.subtitle}</p>}
+        <div class="tags">{p.data.tags.map((t) => <span class="tag">{t}</span>)}</div>
+      </a>
+    ))}
+    <p style="text-align:center; margin-top: 1.5rem;">
+      <a href={`${base}/posts`}>查看全部文章 →</a>
+    </p>
+  </div>
+</Base>

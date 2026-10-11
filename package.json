@@ -1,0 +1,1 @@
+{"dependencies":{"@astrojs/rss":"^4.0.7","astro":"^5.13.0"},"name":"daily-learning","private":true,"scripts":{"astro":"astro","build":"astro build","dev":"astro dev","preview":"astro preview"},"type":"module","version":"0.1.0"}

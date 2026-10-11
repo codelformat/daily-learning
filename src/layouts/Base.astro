@@ -1,0 +1,81 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  active?: 'home' | 'posts' | 'about';
+}
+
+const { title, description, active } = Astro.props;
+const siteTitle = '每天一门课';
+const pageTitle = title ? `${title} · ${siteTitle}` : siteTitle;
+const desc = description ?? 'Harry 的公开学习笔记：每天一门课，方向 AI Agent / MCP / 区块链。';
+const base = import.meta.env.BASE_URL;
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={desc} />
+    <title>{pageTitle}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href={`${base}`}>每天一门课<span class="dot">.</span></a>
+        <nav class="nav">
+          <a href={`${base}`} class={active === 'home' ? 'active' : ''}>首页</a>
+          <a href={`${base}/posts`} class={active === 'posts' ? 'active' : ''}>文章</a>
+          <a href={`${base}/about`} class={active === 'about' ? 'active' : ''}>关于</a>
+          <button class="theme-btn" id="theme-btn" aria-label="切换深色模式" title="切换深色模式">◐</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>
+          每天一门课 · 学完就记，20 分钟封顶 ·
+          <a href={`${base}/rss.xml`}>RSS</a> ·
+          <a href="https://github.com/codelformat" target="_blank" rel="noopener">GitHub</a>
+        </p>
+        <p>© 2026 Sheng Guan · MIT Licensed · Built with Astro</p>
+      </div>
+    </footer>
+
+    <script is:inline>
+      (function () {
+        var btn = document.getElementById('theme-btn');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          var dark = document.documentElement.classList.toggle('dark');
+          try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+        });
+      })();
+    </script>
+  </body>
+</html>
