@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="440" viewBox="0 0 800 440" font-family="Noto Sans SC, PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="800" height="440" fill="#faf6ee"/>
+  <text x="400" y="40" text-anchor="middle" font-size="24" font-weight="700" fill="#2b2620">从中心化到点对点</text>
+  <text x="400" y="64" text-anchor="middle" font-size="13" fill="#8a7f70">课程第 1 章：重新思考传统的客户端-服务器计算</text>
+
+  <!-- left: centralized -->
+  <g>
+    <text x="200" y="100" text-anchor="middle" font-size="16" font-weight="700" fill="#2b2620">传统客户端-服务器</text>
+    <rect x="150" y="120" width="100" height="52" rx="10" fill="#fffdf8" stroke="#2b2620" stroke-width="2.5"/>
+    <text x="200" y="142" text-anchor="middle" font-size="14" font-weight="700" fill="#2b2620">中心机构</text>
+    <text x="200" y="160" text-anchor="middle" font-size="10.5" fill="#8a7f70">银行 / 平台</text>
+    <g fill="#8a7f70">
+      <circle cx="90" cy="240" r="22"/>
+      <circle cx="310" cy="240" r="22"/>
+      <circle cx="200" cy="310" r="22"/>
+    </g>
+    <g stroke="#8a7f70" stroke-width="2" fill="none">
+      <line x1="150" y1="172" x2="90" y2="220"/>
+      <line x1="250" y1="172" x2="310" y2="220"/>
+      <line x1="200" y1="172" x2="200" y2="288"/>
+    </g>
+    <g font-size="10.5" fill="#faf6ee" text-anchor="middle">
+      <text x="90" y="244">用户</text>
+      <text x="310" y="244">用户</text>
+      <text x="200" y="314">用户</text>
+    </g>
+    <text x="200" y="360" text-anchor="middle" font-size="11.5" fill="#8a7f70">所有交易经中心校验、记账</text>
+    <text x="200" y="380" text-anchor="middle" font-size="11.5" fill="#8a7f70">单点故障 · 权力集中 · 信任成本</text>
+  </g>
+
+  <!-- divider -->
+  <line x1="400" y1="90" x2="400" y2="400" stroke="#d8cfbd" stroke-width="2" stroke-dasharray="6,5"/>
+  <text x="400" y="236" text-anchor="middle" font-size="13" font-weight="700" fill="#b23a1e">VS</text>
+
+  <!-- right: p2p -->
+  <g>
+    <text x="600" y="100" text-anchor="middle" font-size="16" font-weight="700" fill="#2b2620">区块链 P2P 网络</text>
+    <g fill="#fffdf8" stroke="#b23a1e" stroke-width="2">
+      <circle cx="520" cy="150" r="26"/>
+      <circle cx="680" cy="150" r="26"/>
+      <circle cx="460" cy="260" r="26"/>
+      <circle cx="600" cy="240" r="26"/>
+      <circle cx="740" cy="260" r="26"/>
+    </g>
+    <g font-size="10.5" fill="#2b2620" text-anchor="middle" font-weight="700">
+      <text x="520" y="154">节点</text>
+      <text x="680" y="154">节点</text>
+      <text x="460" y="264">节点</text>
+      <text x="600" y="244">节点</text>
+      <text x="740" y="264">节点</text>
+    </g>
+    <g stroke="#b23a1e" stroke-width="1.8" fill="none" opacity="0.85">
+      <line x1="546" y1="150" x2="654" y2="150"/>
+      <line x1="520" y1="176" x2="468" y2="236"/>
+      <line x1="520" y1="176" x2="586" y2="222"/>
+      <line x1="680" y1="176" x2="614" y2="222"/>
+      <line x1="680" y1="176" x2="732" y2="236"/>
+      <line x1="486" y1="260" x2="574" y2="246"/>
+      <line x1="626" y1="244" x2="714" y2="256"/>
+      <line x1="486" y1="268" x2="600" y2="300"/>
+      <line x1="600" y1="300" x2="714" y2="268"/>
+    </g>
+    <circle cx="600" cy="300" r="16" fill="#b23a1e"/>
+    <text x="600" y="304" text-anchor="middle" font-size="10" fill="#faf6ee" font-weight="700">账本</text>
+    <text x="600" y="360" text-anchor="middle" font-size="11.5" fill="#8a7f70">每个节点都存一份完整副本</text>
+    <text x="600" y="380" text-anchor="middle" font-size="11.5" fill="#8a7f70">共识机制代替中心裁判</text>
+  </g>
+
+  <line x1="120" y1="418" x2="680" y2="418" stroke="#b23a1e" stroke-width="3"/>
+  <text x="400" y="436" text-anchor="middle" font-size="12.5" font-weight="700" fill="#b23a1e">核心转变：把「信任中心机构」换成「信任代码与共识」</text>
+</svg>

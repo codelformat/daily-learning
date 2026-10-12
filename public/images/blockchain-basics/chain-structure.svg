@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="470" viewBox="0 0 800 470" font-family="Noto Sans SC, PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arrR" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <polygon points="0,0 9,4.5 0,9" fill="#b23a1e"/>
+    </marker>
+  </defs>
+  <rect width="800" height="470" fill="#faf6ee"/>
+  <text x="400" y="40" text-anchor="middle" font-size="24" font-weight="700" fill="#2b2620">区块与哈希链</text>
+  <text x="400" y="64" text-anchor="middle" font-size="13" fill="#8a7f70">每个区块都包含前一个区块的哈希——改一处，后面全部失效</text>
+
+  <!-- block 1 -->
+  <g>
+    <rect x="40" y="110" width="200" height="170" rx="10" fill="#fffdf8" stroke="#d8cfbd" stroke-width="2"/>
+    <rect x="40" y="110" width="200" height="34" rx="10" fill="#2b2620"/>
+    <text x="140" y="133" text-anchor="middle" font-size="14" font-weight="700" fill="#faf6ee">区块 #1（创世块）</text>
+    <text x="58" y="168" font-size="11.5" fill="#8a7f70">时间戳</text>
+    <text x="58" y="186" font-size="11.5" fill="#8a7f70">交易记录（多笔）</text>
+    <text x="58" y="204" font-size="11.5" fill="#8a7f70">本区块哈希</text>
+    <text x="58" y="222" font-size="11.5" fill="#8a7f70">前块哈希：无（第一个）</text>
+    <text x="58" y="248" font-size="11.5" fill="#2b2620" font-weight="700">哈希 ≈ 指纹</text>
+    <text x="58" y="264" font-size="11" fill="#8a7f70">内容变一点 → 指纹全变</text>
+  </g>
+  <!-- block 2 -->
+  <g>
+    <rect x="300" y="110" width="200" height="170" rx="10" fill="#fffdf8" stroke="#d8cfbd" stroke-width="2"/>
+    <rect x="300" y="110" width="200" height="34" rx="10" fill="#2b2620"/>
+    <text x="400" y="133" text-anchor="middle" font-size="14" font-weight="700" fill="#faf6ee">区块 #2</text>
+    <text x="318" y="168" font-size="11.5" fill="#8a7f70">时间戳</text>
+    <text x="318" y="186" font-size="11.5" fill="#8a7f70">交易记录（多笔）</text>
+    <text x="318" y="204" font-size="11.5" fill="#8a7f70">本区块哈希</text>
+    <text x="318" y="222" font-size="11.5" fill="#b23a1e" font-weight="700">前块哈希 = #1 的哈希</text>
+    <text x="318" y="248" font-size="11.5" fill="#2b2620" font-weight="700">共识后才会被追加</text>
+    <text x="318" y="264" font-size="11" fill="#8a7f70">网络节点共同校验</text>
+  </g>
+  <!-- block 3 -->
+  <g>
+    <rect x="560" y="110" width="200" height="170" rx="10" fill="#fffdf8" stroke="#d8cfbd" stroke-width="2"/>
+    <rect x="560" y="110" width="200" height="34" rx="10" fill="#2b2620"/>
+    <text x="660" y="133" text-anchor="middle" font-size="14" font-weight="700" fill="#faf6ee">区块 #3</text>
+    <text x="578" y="168" font-size="11.5" fill="#8a7f70">时间戳</text>
+    <text x="578" y="186" font-size="11.5" fill="#8a7f70">交易记录（多笔）</text>
+    <text x="578" y="204" font-size="11.5" fill="#8a7f70">本区块哈希</text>
+    <text x="578" y="222" font-size="11.5" fill="#b23a1e" font-weight="700">前块哈希 = #2 的哈希</text>
+    <text x="578" y="248" font-size="11.5" fill="#2b2620" font-weight="700">越往后越难改</text>
+    <text x="578" y="264" font-size="11" fill="#8a7f70">要改需重做其后所有块</text>
+  </g>
+
+  <!-- linkage arrows -->
+  <g stroke="#b23a1e" stroke-width="2.5" fill="none">
+    <path d="M 240 195 L 298 195" marker-end="url(#arrR)"/>
+    <path d="M 500 195 L 558 195" marker-end="url(#arrR)"/>
+  </g>
+  <text x="269" y="185" text-anchor="middle" font-size="10.5" fill="#b23a1e">哈希指针</text>
+  <text x="529" y="185" text-anchor="middle" font-size="10.5" fill="#b23a1e">哈希指针</text>
+
+  <!-- tamper annotation -->
+  <rect x="60" y="320" width="680" height="56" rx="10" fill="#fdf3ec" stroke="#b23a1e" stroke-width="2"/>
+  <text x="400" y="344" text-anchor="middle" font-size="13.5" font-weight="700" fill="#b23a1e">不可篡改的直觉：改 #1 的一笔交易 → #1 哈希变 → #2 里的「前块哈希」对不上 → 链条断裂</text>
+  <text x="400" y="363" text-anchor="middle" font-size="11.5" fill="#8a7f70">攻击者要重算其后所有区块，并在全网共识中胜出——这正是「安全」的来源</text>
+
+  <!-- append-only -->
+  <text x="400" y="410" text-anchor="middle" font-size="14" font-weight="700" fill="#2b2620">只追加（append-only）的分布式账本</text>
+  <text x="400" y="434" text-anchor="middle" font-size="12" fill="#8a7f70">新区块经网络共识验证后追加 · 副本分布在众多节点上 · 无单一控制中心</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="470" viewBox="0 0 800 470" font-family="Noto Sans SC, PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="800" height="470" fill="#faf6ee"/>
+  <text x="400" y="40" text-anchor="middle" font-size="24" font-weight="700" fill="#2b2620">区块链宇宙</text>
+  <text x="400" y="64" text-anchor="middle" font-size="13" fill="#8a7f70">DLT 是伞形术语，区块链只是其中一种；课程第 4 章的版图</text>
+
+  <!-- DLT umbrella -->
+  <path d="M 100 130 Q 400 20 700 130 Z" fill="#fffdf8" stroke="#2b2620" stroke-width="2.5"/>
+  <text x="400" y="90" text-anchor="middle" font-size="17" font-weight="700" fill="#2b2620">分布式账本技术 DLT</text>
+  <text x="400" y="112" text-anchor="middle" font-size="11.5" fill="#8a7f70"> umbrella term · 共享的、分布式记账的统称</text>
+
+  <!-- blockchain inside -->
+  <rect x="240" y="150" width="320" height="60" rx="12" fill="#fdf3ec" stroke="#b23a1e" stroke-width="2.5"/>
+  <text x="400" y="176" text-anchor="middle" font-size="16" font-weight="700" fill="#b23a1e">区块链 Blockchain</text>
+  <text x="400" y="196" text-anchor="middle" font-size="11.5" fill="#8a7f70">DLT 的一种 · 区块按哈希链式相连</text>
+  <path d="M 400 130 L 400 150" stroke="#2b2620" stroke-width="2"/>
+  <polygon points="400,150 394,140 406,140" fill="#2b2620"/>
+
+  <!-- public vs private -->
+  <rect x="110" y="240" width="270" height="86" rx="10" fill="#fffdf8" stroke="#d8cfbd" stroke-width="2"/>
+  <text x="245" y="266" text-anchor="middle" font-size="15" font-weight="700" fill="#2b2620">公有链 Public</text>
+  <text x="128" y="290" font-size="11.5" fill="#8a7f70">任何人可参与 · 无需许可</text>
+  <text x="128" y="308" font-size="11.5" fill="#8a7f70">Bitcoin、Ethereum</text>
+
+  <rect x="420" y="240" width="270" height="86" rx="10" fill="#fffdf8" stroke="#d8cfbd" stroke-width="2"/>
+  <text x="555" y="266" text-anchor="middle" font-size="15" font-weight="700" fill="#2b2620">私有链 Private</text>
+  <text x="438" y="290" font-size="11.5" fill="#8a7f70">许可制 · 组织内部控制</text>
+  <text x="438" y="308" font-size="11.5" fill="#8a7f70">企业级部署</text>
+
+  <!-- universe row -->
+  <text x="400" y="362" text-anchor="middle" font-size="14" font-weight="700" fill="#2b2620">智能合约之上长出的生态</text>
+  <g>
+    <rect x="80" y="378" width="200" height="56" rx="28" fill="#fffdf8" stroke="#b23a1e" stroke-width="2"/>
+    <text x="180" y="400" text-anchor="middle" font-size="14" font-weight="700" fill="#2b2620">智能合约</text>
+    <text x="180" y="420" text-anchor="middle" font-size="11" fill="#8a7f70">满足预定规则即执行</text>
+    <rect x="300" y="378" width="200" height="56" rx="28" fill="#fffdf8" stroke="#b23a1e" stroke-width="2"/>
+    <text x="400" y="400" text-anchor="middle" font-size="14" font-weight="700" fill="#2b2620">NFT</text>
+    <text x="400" y="420" text-anchor="middle" font-size="11" fill="#8a7f70">非同质化代币</text>
+    <rect x="520" y="378" width="200" height="56" rx="28" fill="#fffdf8" stroke="#b23a1e" stroke-width="2"/>
+    <text x="620" y="400" text-anchor="middle" font-size="14" font-weight="700" fill="#2b2620">DeFi</text>
+    <text x="620" y="420" text-anchor="middle" font-size="11" fill="#8a7f70">去中心化金融</text>
+  </g>
+</svg>

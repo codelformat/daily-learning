@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="440" viewBox="0 0 800 440" font-family="Noto Sans SC, PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="800" height="440" fill="#faf6ee"/>
+  <text x="400" y="40" text-anchor="middle" font-size="24" font-weight="700" fill="#2b2620">落地场景</text>
+  <text x="400" y="64" text-anchor="middle" font-size="13" fill="#8a7f70">课程第 5 章「Blockchain in Context」的三个用例</text>
+
+  <!-- use case 1 -->
+  <g>
+    <rect x="60" y="100" width="680" height="84" rx="12" fill="#fffdf8" stroke="#d8cfbd" stroke-width="2"/>
+    <circle cx="110" cy="142" r="26" fill="#fdf3ec" stroke="#b23a1e" stroke-width="2"/>
+    <text x="110" y="138" text-anchor="middle" font-size="10.5" fill="#b23a1e" font-weight="700">跨境</text>
+    <text x="110" y="150" text-anchor="middle" font-size="10.5" fill="#b23a1e" font-weight="700">支付</text>
+    <text x="155" y="128" font-size="15" font-weight="700" fill="#2b2620">跨境支付 Cross-border payments</text>
+    <text x="155" y="150" font-size="12" fill="#8a7f70">传统电汇：多级中介、数天到账、费用高 → 链上实时清结算（如 RippleNet 的思路）</text>
+    <text x="155" y="170" font-size="11.5" fill="#8a7f70">痛点：小额汇款被费用卡死 · 受益方与发送方都吃亏</text>
+  </g>
+  <!-- use case 2 -->
+  <g>
+    <rect x="60" y="200" width="680" height="84" rx="12" fill="#fffdf8" stroke="#d8cfbd" stroke-width="2"/>
+    <circle cx="110" cy="242" r="26" fill="#fdf3ec" stroke="#b23a1e" stroke-width="2"/>
+    <text x="110" y="238" text-anchor="middle" font-size="10.5" fill="#b23a1e" font-weight="700">身份</text>
+    <text x="110" y="250" text-anchor="middle" font-size="10.5" fill="#b23a1e" font-weight="700">管理</text>
+    <text x="155" y="228" font-size="15" font-weight="700" fill="#2b2620">身份管理 Identity management</text>
+    <text x="155" y="250" font-size="12" fill="#8a7f70">自己掌控可验证的身份凭证，减少中心数据库被黑、被冒用的风险</text>
+    <text x="155" y="270" font-size="11.5" fill="#8a7f70">背景：线上「对方真的是他吗」的信任问题</text>
+  </g>
+  <!-- use case 3 -->
+  <g>
+    <rect x="60" y="300" width="680" height="84" rx="12" fill="#fffdf8" stroke="#d8cfbd" stroke-width="2"/>
+    <circle cx="110" cy="342" r="26" fill="#fdf3ec" stroke="#b23a1e" stroke-width="2"/>
+    <text x="110" y="338" text-anchor="middle" font-size="10.5" fill="#b23a1e" font-weight="700">产权</text>
+    <text x="110" y="350" text-anchor="middle" font-size="10.5" fill="#b23a1e" font-weight="700">登记</text>
+    <text x="155" y="328" font-size="15" font-weight="700" fill="#2b2620">产权登记 Title registries</text>
+    <text x="155" y="350" font-size="12" fill="#8a7f70">把产权记录放到不可篡改的账本上，降低确权与过户的摩擦</text>
+    <text x="155" y="370" font-size="11.5" fill="#8a7f70">延伸：供应链管理、数字资产等也是课程提到的方向</text>
+  </g>
+
+  <line x1="120" y1="408" x2="680" y2="408" stroke="#b23a1e" stroke-width="3"/>
+  <text x="400" y="428" text-anchor="middle" font-size="12.5" font-weight="700" fill="#b23a1e">共同点：多方参与、互不完全信任、需要共享的「唯一事实来源」</text>
+</svg>

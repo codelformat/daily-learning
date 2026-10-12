@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="540" viewBox="0 0 800 540" font-family="Noto Sans SC, PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arrR" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <polygon points="0,0 9,4.5 0,9" fill="#b23a1e"/>
+    </marker>
+    <marker id="arrD" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <polygon points="0,0 9,4.5 0,9" fill="#8a7f70"/>
+    </marker>
+  </defs>
+  <rect width="800" height="540" fill="#faf6ee"/>
+  <text x="400" y="40" text-anchor="middle" font-size="24" font-weight="700" fill="#2b2620">Streamable HTTP 传输</text>
+  <text x="400" y="64" text-anchor="middle" font-size="13" fill="#8a7f70">单端点 + SSE 流 · 用「客户端先建连」绕开 HTTP 不能反向推送的限制</text>
+
+  <!-- client / server -->
+  <rect x="60" y="100" width="190" height="90" rx="12" fill="#fffdf8" stroke="#b23a1e" stroke-width="2.5"/>
+  <text x="155" y="138" text-anchor="middle" font-size="18" font-weight="700" fill="#2b2620">客户端</text>
+  <text x="155" y="160" text-anchor="middle" font-size="12" fill="#8a7f70">所有连接都由它发起</text>
+
+  <rect x="550" y="100" width="190" height="90" rx="12" fill="#fffdf8" stroke="#b23a1e" stroke-width="2.5"/>
+  <text x="645" y="138" text-anchor="middle" font-size="18" font-weight="700" fill="#2b2620">远程服务器</text>
+  <text x="645" y="160" text-anchor="middle" font-size="12" fill="#8a7f70">单端点，如 /mcp</text>
+
+  <!-- 1. POST initialize -->
+  <g stroke="#b23a1e" stroke-width="2.5" fill="none">
+    <path d="M 250 118 L 550 118" marker-end="url(#arrR)"/>
+    <path d="M 550 140 L 250 140" marker-end="url(#arrR)"/>
+  </g>
+  <text x="400" y="110" text-anchor="middle" font-size="12" font-weight="700" fill="#b23a1e">① POST initialize 请求</text>
+  <text x="400" y="156" text-anchor="middle" font-size="12" font-weight="700" fill="#b23a1e">② 响应头返回 Mcp-Session-Id</text>
+
+  <!-- 2. initialized notification -->
+  <g stroke="#b23a1e" stroke-width="2.5" fill="none">
+    <path d="M 250 172 L 550 172" marker-end="url(#arrR)"/>
+  </g>
+  <text x="400" y="190" text-anchor="middle" font-size="12" font-weight="700" fill="#b23a1e">③ initialized 通知（协议层「开工确认」）</text>
+
+  <!-- 3. two SSE connections -->
+  <g stroke="#8a7f70" stroke-width="2" stroke-dasharray="6,4" fill="none">
+    <path d="M 250 225 Q 400 200 550 225" marker-end="url(#arrD)"/>
+    <path d="M 250 265 Q 400 290 550 265" marker-end="url(#arrD)"/>
+  </g>
+  <text x="400" y="222" text-anchor="middle" font-size="12" font-weight="700" fill="#2b2620">主 SSE 连接（GET，长连不关）→ 服务器主动请求：sampling / roots / elicitation</text>
+  <text x="400" y="262" text-anchor="middle" font-size="12" font-weight="700" fill="#2b2620">工具专用 SSE 连接（每次工具调用新建，结果发出即关）→ 工具结果 + 日志消息</text>
+
+  <!-- routing table -->
+  <rect x="60" y="320" width="680" height="130" rx="10" fill="#fffdf8" stroke="#d8cfbd" stroke-width="2"/>
+  <text x="400" y="346" text-anchor="middle" font-size="14" font-weight="700" fill="#2b2620">消息路由：不同类型的消息走不同的连接</text>
+  <g font-size="12.5" fill="#2b2620">
+    <text x="90" y="374">· 普通 JSON-RPC 请求/响应</text>
+    <text x="90" y="398">· 进度通知 Progress</text>
+    <text x="90" y="422">· 日志消息 Logging、工具结果</text>
+  </g>
+  <g font-size="12.5" fill="#2b2620">
+    <text x="420" y="374">→ POST /mcp，直接回 JSON</text>
+    <text x="420" y="398">→ 主 SSE 连接推送</text>
+    <text x="420" y="422">→ 工具专用 SSE 连接推送</text>
+  </g>
+
+  <!-- flags warning -->
+  <rect x="60" y="466" width="680" height="52" rx="10" fill="#fdf3ec" stroke="#b23a1e" stroke-width="2"/>
+  <text x="400" y="490" text-anchor="middle" font-size="13" font-weight="700" fill="#b23a1e">配置开关 stateless_http / json_response 设为 True 会打破 SSE 机制——换来可扩展性，代价是丢掉服务器→客户端的功能</text>
+  <text x="400" y="509" text-anchor="middle" font-size="11.5" fill="#8a7f70">断线重连：客户端用 Last-Event-ID 头续传；NAT 后面的客户端也没问题，因为连接永远是向外建的</text>
+</svg>

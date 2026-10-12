@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480" font-family="Noto Sans SC, PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arrR" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <polygon points="0,0 9,4.5 0,9" fill="#b23a1e"/>
+    </marker>
+  </defs>
+  <rect width="800" height="480" fill="#faf6ee"/>
+  <text x="400" y="40" text-anchor="middle" font-size="24" font-weight="700" fill="#2b2620">Agent 能力栈</text>
+  <text x="400" y="64" text-anchor="middle" font-size="13" fill="#8a7f70">从「会聊天」到「会做事」：课程逐层叠加的四层能力</text>
+
+  <!-- layer 1: prompt -->
+  <rect x="120" y="92" width="560" height="66" rx="12" fill="#fffdf8" stroke="#d8cfbd" stroke-width="2"/>
+  <text x="400" y="120" text-anchor="middle" font-size="16" font-weight="700" fill="#2b2620">① Prompt 设计</text>
+  <text x="400" y="142" text-anchor="middle" font-size="12" fill="#8a7f70">用系统提示塑造人格与行为（Joke teller：同一个模型，换一套提示词就换了性格）</text>
+
+  <!-- layer 2: multistep -->
+  <rect x="120" y="172" width="560" height="66" rx="12" fill="#fffdf8" stroke="#d8cfbd" stroke-width="2"/>
+  <text x="400" y="200" text-anchor="middle" font-size="16" font-weight="700" fill="#2b2620">② 多步思考</text>
+  <text x="400" y="222" text-anchor="middle" font-size="12" fill="#8a7f70">把任务拆成阶段：先摘要 → 再生成标题 → 最后给 hashtag，多段提示协同推理</text>
+
+  <!-- layer 3: memory -->
+  <rect x="120" y="252" width="560" height="66" rx="12" fill="#fffdf8" stroke="#d8cfbd" stroke-width="2"/>
+  <text x="400" y="280" text-anchor="middle" font-size="16" font-weight="700" fill="#2b2620">③ 记忆与上下文</text>
+  <text x="400" y="302" text-anchor="middle" font-size="12" fill="#8a7f70">短期记忆：记住前文事实，在后续追问中引用</text>
+
+  <!-- layer 4: tools -->
+  <rect x="120" y="332" width="560" height="66" rx="12" fill="#fffdf8" stroke="#b23a1e" stroke-width="2.5"/>
+  <text x="400" y="360" text-anchor="middle" font-size="16" font-weight="700" fill="#2b2620">④ 工具与 API</text>
+  <text x="400" y="382" text-anchor="middle" font-size="12" fill="#8a7f70">从「只会说」到「能做事」：安全计算器、分层网页搜索（ DuckDuckGo + 网页正文抽取 ）</text>
+
+  <!-- arrows up -->
+  <g stroke="#b23a1e" stroke-width="2.5" fill="none">
+    <path d="M 400 158 L 400 170" marker-end="url(#arrR)"/>
+    <path d="M 400 238 L 400 250" marker-end="url(#arrR)"/>
+    <path d="M 400 318 L 400 330" marker-end="url(#arrR)"/>
+  </g>
+
+  <!-- base -->
+  <rect x="180" y="416" width="440" height="44" rx="22" fill="#fffdf8" stroke="#d8cfbd" stroke-width="2"/>
+  <text x="400" y="443" text-anchor="middle" font-size="14" font-weight="700" fill="#2b2620">底座：LangChain + Hugging Face 模型（Transformers pipeline，本地 CPU 可跑）</text>
+</svg>
