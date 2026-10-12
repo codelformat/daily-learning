@@ -41,7 +41,8 @@ const tracks = [
 const latest = posts.slice(0, 3);
 
 function fmt(d: Date) {
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  // 用 UTC 取数，避免构建机时区把日期挪前一天
+  return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}-${String(d.getUTCDate()).padStart(2, '0')}`;
 }
 function slugOf(id: string) { return id.replace(/\.md$/, ''); }
 ---

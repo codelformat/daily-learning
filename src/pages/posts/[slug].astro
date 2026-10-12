@@ -17,65 +17,150 @@ export async function getStaticPaths() {
 }
 
 const { post, prev, next } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 const base = import.meta.env.BASE_URL;
 const d = post.data;
 
 function fmt(date: Date) {
-  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+  // 用 UTC 取数，避免构建机时区把日期挪前一天
+  return `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, '0')}-${String(date.getUTCDate()).padStart(2, '0')}`;
 }
 function slugOf(id: string) { return id.replace(/\.md$/, ''); }
 const trackName = d.track === 'agent' ? 'Agent / MCP' : '区块链';
+
+// 目录：h2 / h3
+const tocItems = headings
+  .filter((h) => h.depth === 2 || h.depth === 3)
+  .map((h) => ({ depth: h.depth, slug: h.slug, text: h.text }));
 ---
 
 <Base active="posts" title={d.title} description={d.subtitle ?? d.title}>
-  <div class="wrap">
+  <div class="wrap-wide">
     <article class="article">
       <h1>{d.title}</h1>
       {d.subtitle && <p class="sub">{d.subtitle}</p>}
 
-      <div class="meta-card">
-        <div class="row"><span class="k">课程</span><span>{d.title}</span></div>
-        {d.platform && <div class="row"><span class="k">平台</span><span>{d.platform}</span></div>}
-        <div class="row"><span class="k">日期</span><span>{fmt(d.date)}</span></div>
-        <div class="row">
-          <span class="k">状态</span>
-          <span>
-            {d.status === 'completed' ? (
-              <span class="status-badge status-done">已完成</span>
-            ) : (
+      {tocItems.length > 0 && (
+        <details class="toc-mobile">
+          <summary>目录</summary>
+          <ol>
+            {tocItems.map((h) => (
+              <li class={h.depth === 3 ? 'lvl3' : ''}>
+                <a href={`#${h.slug}`} set:html={h.text} />
+              </li>
+            ))}
+          </ol>
+        </details>
+      )}
+
+      <div class="article-layout">
+        <div>
+          <div class="meta-card">
+            <div class="row">
+              <span class="k">课程</span>
               <span>
-                <span class="status-badge status-wip">学习中</span>
-                {d.progress != null && (
-                  <span style="margin-left:.6rem">
-                    <span class="progress" style="display:inline-block;width:120px;vertical-align:middle">
-                      <span style={`width:${d.progress}%`}></span>
-                    </span>
-                    <span style="font-size:.82rem;color:var(--ink-soft)"> {d.progress}%</span>
+                {d.course ?? d.title}
+                {d.courseUrl && (
+                  <a class="course-link" href={d.courseUrl} target="_blank" rel="noopener">课程主页 ↗</a>
+                )}
+              </span>
+            </div>
+            {d.platform && <div class="row"><span class="k">平台</span><span>{d.platform}</span></div>}
+            <div class="row"><span class="k">日期</span><span>{fmt(d.date)}</span></div>
+            <div class="row">
+              <span class="k">状态</span>
+              <span>
+                {d.status === 'completed' ? (
+                  <span class="status-badge status-done">已完成</span>
+                ) : (
+                  <span>
+                    <span class="status-badge status-wip">学习中</span>
+                    {d.progress != null && (
+                      <span style="margin-left:.6rem">
+                        <span class="progress" style="display:inline-block;width:120px;vertical-align:middle">
+                          <span style={`width:${d.progress}%`}></span>
+                        </span>
+                        <span style="font-size:.82rem;color:var(--ink-soft)"> {d.progress}%</span>
+                      </span>
+                    )}
                   </span>
                 )}
               </span>
+            </div>
+            <div class="row"><span class="k">赛道</span><span>{trackName}</span></div>
+            {d.tags.length > 0 && (
+              <div class="row"><span class="k">标签</span><span class="tags" style="margin-top:0">{d.tags.map((t) => <span class="tag">{t}</span>)}</span></div>
             )}
-          </span>
+          </div>
+
+          {d.keypoints && d.keypoints.length > 0 && (
+            <aside class="keypoints">
+              <div class="kp-label">核心要点</div>
+              <ul>
+                {d.keypoints.map((p) => <li>{p}</li>)}
+              </ul>
+            </aside>
+          )}
+
+          <div class="article-body">
+            <Content />
+          </div>
+
+          <nav class="post-nav">
+            <span>
+              {prev && <a href={`${base}/posts/${slugOf(prev.id)}/`}>← {prev.data.title}</a>}
+            </span>
+            <span>
+              {next && <a href={`${base}/posts/${slugOf(next.id)}/`}>{next.data.title} →</a>}
+            </span>
+          </nav>
         </div>
-        <div class="row"><span class="k">赛道</span><span>{trackName}</span></div>
-        {d.tags.length > 0 && (
-          <div class="row"><span class="k">标签</span><span class="tags" style="margin-top:0">{d.tags.map((t) => <span class="tag">{t}</span>)}</span></div>
+
+        {tocItems.length > 0 && (
+          <nav class="toc" aria-label="文章目录">
+            <div class="toc-title">目录</div>
+            <ol>
+              {tocItems.map((h) => (
+                <li class={h.depth === 3 ? 'lvl3' : ''}>
+                  <a href={`#${h.slug}`} set:html={h.text} />
+                </li>
+              ))}
+            </ol>
+          </nav>
         )}
       </div>
-
-      <div class="article-body">
-        <Content />
-      </div>
-
-      <nav class="post-nav">
-        <span>
-          {prev && <a href={`${base}/posts/${slugOf(prev.id)}/`}>← {prev.data.title}</a>}
-        </span>
-        <span>
-          {next && <a href={`${base}/posts/${slugOf(next.id)}/`}>{next.data.title} →</a>}
-        </span>
-      </nav>
     </article>
   </div>
 </Base>
+
+<script is:inline>
+  // TOC 滚动高亮（scroll-spy）
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.toc a[href^="#"]'));
+    if (!links.length) return;
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var heads = Object.keys(map)
+      .map(function (id) { return document.getElementById(id); })
+      .filter(Boolean);
+    var current = null;
+    function set(id) {
+      if (current === id) return;
+      current = id;
+      links.forEach(function (a) {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) set(e.target.id);
+        });
+      }, { rootMargin: '-80px 0px -65% 0px', threshold: 0 });
+      heads.forEach(function (h) { io.observe(h); });
+    }
+    links.forEach(function (a) {
+      a.addEventListener('click', function () { set(a.getAttribute('href').slice(1)); });
+    });
+  })();
+</script>

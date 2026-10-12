@@ -1,12 +1,20 @@
 ---
-title: 区块链基础知识
+title: 区块链基础
 subtitle: Blockchain Basics
 date: 2026-10-08
 platform: LinkedIn Learning
+course: Blockchain Basics
+courseUrl: https://www.linkedin.com/learning/blockchain-basics
 status: completed
 tags: [区块链]
 track: blockchain
+keypoints:
+  - 目标单纯：建立对"链"的直觉——区块、共识、钱包、交易先从黑话变成常识
+  - CS 背景的重点不是"学会"而是"校准"：把分布式系统直觉（一致性、容错）映射到链上
+  - AI × Web3 pivot 的第一步：先理解去中心化账本、不可篡改、programmable money 的世界观
 ---
+
+> **课程**：[Blockchain Basics](https://www.linkedin.com/learning/blockchain-basics)（LinkedIn Learning，Jonathan Reichental）
 
 区块链线的起点，第一课。目标很单纯：把"链"这个东西的直觉建立起来——区块、共识、钱包、交易，这些词先从黑话变成常识。
 
@@ -26,5 +34,5 @@ track: blockchain
 
 ## 下一步
 
-- 《加密货币基金会》（在学 40%）补交易所/市场机制那块；
+- 《加密货币基础》（在学 40%）补交易所/市场机制那块；
 - HK$3,000 真实买币实验：开户 → 入金 → 现货买入 → 提币到自己钱包，走完一遍比看十节课管用。

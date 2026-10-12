@@ -1,12 +1,20 @@
 ---
-title: 模型上下文协议：Anthropic 的高级主题
-subtitle: Model Context Protocol — Advanced Topics · 传输层、握手与反向调用
+title: 模型上下文协议：高级主题
+subtitle: "Model Context Protocol: Advanced topics · 传输层、握手与反向调用"
 date: 2026-10-10
-platform: LinkedIn Learning
+platform: Claude Academy
+course: "Model Context Protocol: Advanced topics"
+courseUrl: https://academy.claude.com/courses/model-context-protocol-advanced-topics
 status: completed
 tags: [MCP, Agent, 传输层]
 track: agent
+keypoints:
+  - 传输层：stdio 管本地（Host 把 server 当子进程拉起，日志只能走 stderr）；Streamable HTTP 管远程（单端点 + SSE 流）
+  - 握手：客户端先发 initialize，服务器在响应头返回 Mcp-Session-Id；initialized 通知是协议层的"开工确认"
+  - 协议是双向的：服务器可反向调用客户端——sampling、roots、elicitation
 ---
+
+> **课程**：[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)（Claude Academy，11 课 + 1 测验，约 1.5 小时）
 
 MCP 高级主题这门课，讲的是协议底下的"管道"怎么工作。之前配 MCP server 都是照着文档抄 JSON，这节课之后终于知道每一行配置背后发生了什么。
 

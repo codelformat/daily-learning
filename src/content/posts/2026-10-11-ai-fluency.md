@@ -3,9 +3,17 @@ title: AI Fluency：框架与基础
 subtitle: Claude Academy 课程笔记 · 与 AI 协作的 4D 框架
 date: 2026-10-11
 platform: Claude Academy
+course: "AI Fluency: Framework and foundations"
+courseUrl: https://academy.claude.com/courses/ai-fluency-framework-foundations
 status: completed
 tags: [AI Fluency, 4D框架, 人机协作]
 track: agent
+keypoints:
+  - 核心论点：AI Fluency（AI 流畅度）= 以有效、高效、合乎道德、安全的方式与 AI 协作的综合能力
+  - 4D 框架：委派（Delegation）、描述（Description）、辨别（Discernment）、审慎（Diligence）四个相互关联的能力
+  - 自动化的三种协作方式——自动化、增强、代理——每一种都适用 4D 框架
+  - 培养可迁移的习惯，而非固定的 prompt 模板：模板随模型版本失效，习惯不会
+  - 内循环（描述 ⇄ 辨别）负责做功，外循环（委派 → 审慎）负责框定责任
 ---
 
 <!-- 配图路径含站点 base（/daily-learning），若更换 base 需同步修改图片路径 -->
@@ -39,7 +47,10 @@ track: agent
 
 ## 2. 4D 框架总览
 
-![AI Fluency 4D 框架总览](/daily-learning/images/ai-fluency/4d-framework.svg)
+<figure>
+  <img src="/daily-learning/images/ai-fluency/4d-framework.svg" alt="AI Fluency 4D 框架总览">
+  <figcaption>图 1 · AI Fluency 4D 框架总览：四个相互关联的核心能力，对三种协作方式都适用</figcaption>
+</figure>
 
 四个能力两两关联，并形成两对循环：
 
@@ -50,7 +61,10 @@ track: agent
 
 委派不是"把活儿丢给 AI"，而是对"自己做 / 与 AI 协作 / 交给 AI 独立做"及任务如何分配做**深思熟虑的决定**。课程把它拆成三层递进：
 
-![委派的三层递进](/daily-learning/images/ai-fluency/delegation-flow.svg)
+<figure>
+  <img src="/daily-learning/images/ai-fluency/delegation-flow.svg" alt="委派的三层递进">
+  <figcaption>图 2 · 委派的三层递进：先理解目标本质，再了解 AI 能力边界，最后才谈人与 AI 的分工</figcaption>
+</figure>
 
 | 子组件 | 英文 | 要回答的问题 |
 |---|---|---|
@@ -117,7 +131,10 @@ track: agent
 
 ## 6. 描述-辨别循环：内循环实战
 
-![描述-辨别循环](/daily-learning/images/ai-fluency/dd-loop.svg)
+<figure>
+  <img src="/daily-learning/images/ai-fluency/dd-loop.svg" alt="描述-辨别循环">
+  <figcaption>图 3 · 描述-辨别循环：每个任务重复「描述 → 辨别 → 修正 → 整合」四步，直到完成</figcaption>
+</figure>
 
 课程第 7 课让学习者选定一个**贯穿全程的真实多步骤项目**（中等规模、约 1 小时、真心想做的事），第 11 课用这个循环把它真正做完。每个任务重复四步：
 

@@ -1,13 +1,21 @@
 ---
-title: Anthropic 模型上下文协议介绍
-subtitle: Introduction to Anthropic Model Context Protocol
+title: 模型上下文协议介绍
+subtitle: Introduction to Model Context Protocol
 date: 2026-10-10
-platform: LinkedIn Learning
+platform: Claude Academy
+course: Introduction to Model Context Protocol
+courseUrl: https://academy.claude.com/courses/introduction-to-model-context-protocol
 status: in-progress
 progress: 68
 tags: [MCP, Agent]
 track: agent
+keypoints:
+  - MCP 三类核心原语的分工：tools（模型控制）、resources（应用控制）、prompts（用户控制）
+  - 顺序心得：先学完高级主题再补介绍，反而用 resources vs tools 的分工解开了高级课里的疑惑
+  - 定位：高级课讲"管道怎么工作"，入门课讲"协议里都有哪些东西"
 ---
+
+> **课程**：[Introduction to Model Context Protocol](https://academy.claude.com/courses/introduction-to-model-context-protocol)（Claude Academy，10 课 + 1 测验，约 1 小时）
 
 MCP 的入门课，目前 68%。有意思的是顺序反了：先刷完了《高级主题》才回头补介绍——结果发现介绍里有些基础概念（比如 resources vs tools 的分工）反而把高级课里的疑惑解开了。
 

@@ -1,14 +1,22 @@
 ---
 title: 区块链：超越基础
-subtitle: Blockchain — Beyond the Basics
+subtitle: "Blockchain: Beyond the Basics"
 date: 2026-10-09
 platform: LinkedIn Learning
+course: "Blockchain: Beyond the Basics"
+courseUrl: https://www.linkedin.com/learning/blockchain-beyond-the-basics
 status: completed
 tags: [区块链]
 track: blockchain
+keypoints:
+  - 承接《区块链基础》：趁热打铁，不给遗忘留时间
+  - Agent × Web3 项目（如链上交易 Agent）需要更深一层的机制理解，而不只是"区块链是什么"
+  - 配合双轨节奏：区块链与 Agent 交替推进，避免单轨疲劳
 ---
 
-这是区块链线的第二门课，接在《区块链基础知识》之后继续往深走。双轨学习里区块链这条线的存在意义很明确：为 AI × Web3 的求职 pivot 补课——先懂链，再谈 Agent 上链。
+> **课程**：[Blockchain: Beyond the Basics](https://www.linkedin.com/learning/blockchain-beyond-the-basics)（LinkedIn Learning，Jonathan Reichental）
+
+这是区块链线的第二门课，接在《区块链基础》之后继续往深走。双轨学习里区块链这条线的存在意义很明确：为 AI × Web3 的求职 pivot 补课——先懂链，再谈 Agent 上链。
 
 <!-- TODO: 补充你的三点收获 -->
 <div class="todo">
@@ -26,5 +34,5 @@ track: blockchain
 
 ## 下一步
 
-- 在学中的《Getting Started in Blockchain》（40%）和《加密货币基金会》（40%）继续推进；
+- 在学中的《区块链入门学习路径》（40%）和《加密货币基础》（40%）继续推进；
 - 配合 HK$3,000 的真实买币实验：链上操作的手感，视频给不了。
